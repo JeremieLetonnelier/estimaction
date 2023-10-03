@@ -11,8 +11,6 @@ import { useState } from "react";
 
 export default function Page() {
 
-    const [results, setResults] = useState([]);
-
     return (
         <>
             
@@ -56,6 +54,10 @@ export default function Page() {
                 >
                 
                 <SearchBarCollectives/>
+                </div>
+
+                <div>
+                    
                 </div>
             </div>
             

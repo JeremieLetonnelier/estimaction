@@ -1,42 +1,46 @@
 "use client";
 
 import { SearchBar } from "@codegouvfr/react-dsfr/SearchBar";
-import { useState } from "react"; // for the search bar we use it to know what the user has entered 
-import "./SearchResultsCollectivites.css"
+import { useEffect, useState } from "react"; // for the search bar we use it to know what the user has entered 
+import "./SearchBarCollectivites.css"
 import { NumericFormat } from 'react-number-format';
 
 
 
 export const SearchBarCollectives = () => {              
+    // const initialState = []
     const [search, onSearchChange] = useState(""); // search is the value, onSearchChange that can be use to change the value of the input
-    const [resultsEPCI, onResultsEPCIChange] = useState("")
-    const [resultsCommunes, onResultsCommunesChange] = useState("")
-    const [results_all, onResultsChange] = useState<string[]>([])
-
+    const [results, onResultsChange] = useState([]);
+    const [resultsCommunes, onResultsCommunesChange] = useState([])
+    const [resultsEPCI, onResultsEPCIChange] = useState([])
+   
 
     // const [inputElement, setInputElement] = useState<HTMLInputElement | null>(null); 
 
 
     const fetchData = (value:any) => {
 
-        fetch(`https://geo.api.gouv.fr/communes?nom=${encodeURIComponent(value)}&fields=nom,codesDepartements,population,code&boost=population&limit=5`)
-        .then((response) => response.json())
-        .then((json) => {
-            const resultsCommunes = json.filter((commune:any) => {
-                return (
-                    value &&
-                    commune && // check if EPCI (index) does exist
-                    commune.nom && // check if EPCI (index) has a name
-                    commune.nom.toLowerCase().includes(value.toLowerCase())
-                )
-            });
-            onResultsCommunesChange(resultsCommunes);
+        
 
-        // La valeur du résultat de l'API est stocké dans results, qui a un état défini 
-        // sur la page où est utilisée la barre de rercherche 
+        fetch(`https://geo.api.gouv.fr/communes?nom=${encodeURIComponent(value)}&fields=nom,codesDepartements,population,code&boost=population&limit=2`)
+            .then((response) => response.json())
+            .then((json) => {
+                const resultsCommunes = json.filter((commune:any) => {
+                    return (
+                        value &&
+                        commune && // check if EPCI (index) does existSai
+                        commune.nom && // check if EPCI (index) has a name
+                        commune.nom.toLowerCase().includes(value.toLowerCase())
+                    )
+                });
+                resultsCommunes.forEach((object:any) => {
+                    object.type = 'Commune'
+                })
+                onResultsCommunesChange(resultsCommunes);
+
         });
         
-        fetch(`https://geo.api.gouv.fr/epcis?nom=${encodeURIComponent(value)}&fields=nom,codesDepartements,population,code&boost=population&limit=5`)
+        fetch(`https://geo.api.gouv.fr/epcis?nom=${encodeURIComponent(value)}&fields=nom,codesDepartements,population,code&boost=population&limit=2`)
             .then((response) => response.json())
             .then((json) => {
                 const resultsEPCI = json.filter((epci:any) => {
@@ -47,18 +51,18 @@ export const SearchBarCollectives = () => {
                         epci.nom.toLowerCase().includes(value.toLowerCase())
                     )
                 });
+                resultsEPCI.forEach((object:any) => {
+                    object.type = 'Intercommunalité'
+                })
                 onResultsEPCIChange(resultsEPCI);
             });
 
-
-        {const results_all = [resultsEPCI, resultsCommunes];
-        onResultsChange(results_all);};
-        
-
     };
 
-    const resultsList = (results:any) => {
-        if (results){
+    const resultsList = (resultsCommunes:any,resultsEPCI:any) => {
+        if (resultsCommunes && resultsEPCI){
+            const results = [...resultsCommunes, ...resultsEPCI]
+            results.sort((a,b) => b._score - a._score)
             return (
                 <div className="results-list">
                     {results.map((result:any,id:any) => {
@@ -70,7 +74,7 @@ export const SearchBarCollectives = () => {
                                 value={result.population} 
                                 displayType='text'
                                 thousandSeparator=' ' 
-                                prefix={result.type} 
+                                prefix={result.type + ' · '}
                                 suffix=' habitants'/> 
                             </div>
                         )
@@ -86,8 +90,7 @@ export const SearchBarCollectives = () => {
     const handleChange = (value:any) => {
         onSearchChange(value); // set the 
         fetchData(value); // make the request to the API
-        console.log(results_all);
-        // fetchDataEPCI(value);
+        // onResultsChange([...resultsCommunes,...resultsEPCI])
     };
 
 
@@ -110,7 +113,7 @@ export const SearchBarCollectives = () => {
                     />
                 }
             />
-            <p>{resultsList(resultsEPCI)}</p>
+            <p>{resultsList(resultsCommunes,resultsEPCI)}</p>
         </>
         
     );
