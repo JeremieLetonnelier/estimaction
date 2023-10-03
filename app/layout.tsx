@@ -87,10 +87,8 @@ export default function RootLayout({ children }: { children: JSX.Element; }) {
 							</div>
 							
 							<Footer
-								accessibility="fully compliant"
-								contentDescription={`
-								Cet outil est porté et géré par <a href="https://www.cerema.fr/fr" target="_blank">le Cerema</a>
-                `}
+								accessibility="non compliant"
+								contentDescription={<p>Cet outil est porté et géré par <a href="https://www.cerema.fr/fr" target="_blank">le Cerema</a></p>}
 								bottomItems={[
 									headerFooterDisplayItem,
 									<FooterConsentManagementItem key={0} />,
