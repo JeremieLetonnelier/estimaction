@@ -4,6 +4,7 @@ import { SearchBar } from "@codegouvfr/react-dsfr/SearchBar";
 import { useEffect, useState } from "react"; // for the search bar we use it to know what the user has entered 
 import "./SearchBarCollectivites.css"
 import { NumericFormat } from 'react-number-format';
+import Link from "next/link";
 
 
 
@@ -59,6 +60,12 @@ export const SearchBarCollectives = () => {
 
     };
 
+    const handleClick = (e:any, path:any) => {
+        if (path === "/about") {
+          console.log("I clicked on the About Page");
+        }
+      };
+
     const resultsList = (resultsCommunes:any,resultsEPCI:any) => {
         if (resultsCommunes && resultsEPCI){
             const results = [...resultsCommunes, ...resultsEPCI]
@@ -68,15 +75,29 @@ export const SearchBarCollectives = () => {
                     {results.map((result:any,id:any) => {
                         return (
                             <div className="result-collectivite" key={id}>
-                              <div className="result-collectivite-nom" >{result.nom}</div>
-                              <NumericFormat 
-                                className="result-collectivite-info" 
-                                value={result.population} 
-                                displayType='text'
-                                thousandSeparator=' ' 
-                                prefix={result.type + ' · '}
-                                suffix=' habitants'/> 
+                            <Link 
+                              href={{
+                                pathname: '/collectivite',
+                                query: {
+                                    nom: result.nom,
+                                    code: result.code
+                                }// the data
+                              }}>
+                                
+                                    <div className="result-collectivite-nom" >{result.nom}</div>
+                                    <NumericFormat 
+                                        className="result-collectivite-info" 
+                                        value={result.population} 
+                                        displayType='text'
+                                        thousandSeparator=' ' 
+                                        prefix={result.type + ' · '}
+                                        suffix=' habitants'/> 
+                                
+                            </Link>
+
+                            
                             </div>
+                              
                         )
                     })}
                 </div>
