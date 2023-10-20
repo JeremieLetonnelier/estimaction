@@ -30,6 +30,7 @@ export default function Collectivite() {
                             }}
                         >
                             <h1> YO au diagostic santé evironnement de votre collectivité</h1>
+                            <KPICard codeCommune={searchParams.get('code')}/>
                         </div>
         
                     </div>
