@@ -11,7 +11,7 @@ import { KPICard } from '../components/KPICard';
 
 export default function Collectivite() {
     const searchParams = useSearchParams()
-    console.log(searchParams.get('code')) // Logs "search"
+    // console.log(searchParams.get('code')) // Logs "search"
 
     return(
                 <>

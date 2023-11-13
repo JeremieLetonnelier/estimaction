@@ -15,25 +15,31 @@ export const KPICard = (codeCommune:any) => {
     const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch(`https://api-estimaction-2-tja3bmgvva-od.a.run.app/communes_qualite_air/?admin_express_code_commune_insee=${codeCommune.codeCommune}`)
+        // fetch(`https://api-estimaction-2-tja3bmgvva-od.a.run.app/communes_qualite_air/?admin_express_code_commune_insee=${codeCommune.codeCommune}`)
+        fetch(`http://127.0.0.1:8000/communes_bruit_trafic_routier/?admin_express_code_commune_insee=${codeCommune.codeCommune}`, {
+            mode: 'no-cors'
+          })
         .then((res) => res.json())
         .then((data) => {
             setKPI(data)
             setLoading(false)
+            console.log(data)
           })
       }, [])
      
+    console.log(isLoading)
+    
 
     
     const resultsCard = (isLoading:boolean,kpi:any) => {
-
+        
         if (isLoading) return <p>Chargement...</p>
         if (!kpi) return <p>Pas de données</p>
 
         if (kpi){
             return (
                 <div className="results-list">
-                    {kpi.population_exposee_no2_seuil_10ug}
+                    <p>{kpi}</p>
                 </div>
             )
         };
@@ -45,7 +51,7 @@ export const KPICard = (codeCommune:any) => {
 
     return (
         <>
-            {resultsCard(isLoading,kpi)}
+            <div>{resultsCard(isLoading,kpi)}</div>
         </>
         
     );
