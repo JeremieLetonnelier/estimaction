@@ -35,7 +35,8 @@ export const KPICard = (codeCommune:any) => {
         
         if (isLoading) return <p>Chargement...</p>
         if (!kpi) return <p>Pas de données</p>
-
+        
+        console.log(kpi)
         if (kpi){
             return (
                 <div className="results-list">
