@@ -20,9 +20,6 @@ export const SearchBarCollectives = () => {
 
 
     const fetchData = (value:any) => {
-
-        
-
         fetch(`https://geo.api.gouv.fr/communes?nom=${encodeURIComponent(value)}&fields=nom,codesDepartements,population,code&boost=population&limit=2`)
             .then((response) => response.json())
             .then((json) => {
@@ -38,7 +35,6 @@ export const SearchBarCollectives = () => {
                     object.type = 'Commune'
                 })
                 onResultsCommunesChange(resultsCommunes);
-
         });
         
         fetch(`https://geo.api.gouv.fr/epcis?nom=${encodeURIComponent(value)}&fields=nom,codesDepartements,population,code&boost=population&limit=2`)
@@ -82,7 +78,8 @@ export const SearchBarCollectives = () => {
                                     nom: result.nom,
                                     code: result.code
                                 }// the data
-                              }}>
+                              }}
+                              passHref>
                                 
                                     <div className="result-collectivite-nom" >{result.nom}</div>
                                     <NumericFormat 

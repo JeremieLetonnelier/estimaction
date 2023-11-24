@@ -25,7 +25,7 @@ export const KPICard = (codeCommune:any) => {
             setLoading(false)
             console.log(data)
           })
-      }, [])
+      }, [codeCommune])
      
     console.log(isLoading)
     
