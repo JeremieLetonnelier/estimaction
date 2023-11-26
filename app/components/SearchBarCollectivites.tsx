@@ -76,7 +76,8 @@ export const SearchBarCollectives = () => {
                                 pathname: '/collectivite',
                                 query: {
                                     nom: result.nom,
-                                    code: result.code
+                                    code: result.code,
+                                    population: result.population
                                 }// the data
                               }}
                               passHref>

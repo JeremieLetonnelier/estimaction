@@ -32,15 +32,15 @@ export const KPICard = (codeCommune:any) => {
 
     
     const resultsCard = (isLoading:boolean,kpi:any) => {
-        
-        if (isLoading) return <p>Chargement...</p>
+        console.log('The value of the kpi is : ' + kpi)
+        if (isLoading) return <p>50</p>
         if (!kpi) return <p>Pas de données</p>
         
-        console.log(kpi)
+       
         if (kpi){
             return (
                 <div className="results-list">
-                    <p>{kpi}</p>
+                    <p>50</p>
                 </div>
             )
         };

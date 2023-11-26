@@ -46,39 +46,50 @@ export default function Page() {
                     
                 }}
             >
+
                 <div
+                    className={fr.cx("fr-container")}
                     style={{
                         paddingTop: fr.spacing("32v"),
                         paddingBottom: fr.spacing("6v"),
-                        paddingLeft: fr.spacing('30v'),
-                        width:'690px'
                     }}
                 >
-                    <h1>Accédez au diagostic santé evironnement de votre collectivité</h1>
+                    <div className={fr.cx("fr-col-7")}>
+                        <h1>Accédez au diagostic santé evironnement de votre collectivité</h1>
+                    </div>
+                    <div className={fr.cx("fr-col-5")}>
+                    </div>
                 </div>
                 
                 <div
+                    className={fr.cx("fr-container")}
                     style={{
                         paddingBottom: fr.spacing("4v"),
-                        paddingLeft: fr.spacing('30v'),
-                        width:'690px'
                     }}
-                >
-                    <p>
-                    Sélectionnez une commune ou une intercommunalité et visualisez la population
-                    exposée aux différentes nuisances présentes sur son territoire.
-                    </p>
+                >   
+                    <div className={fr.cx("fr-col-7")}>
+                        <p>
+                        Sélectionnez une commune ou une intercommunalité et visualisez la population
+                        exposée aux différentes nuisances présentes sur son territoire.
+                        </p>
+                    </div>
+                    <div className={fr.cx("fr-col-5")}>
+                    </div>
+
                 </div>
             
                 <div
+                    className={fr.cx("fr-container")}
                     style={{
                         paddingBottom: fr.spacing("4v"),
-                        paddingLeft: fr.spacing('30v'),
-                        width:'690px'
                     }}
                 >
+                    <div className={fr.cx("fr-col-7")}>
+                        <SearchBarCollectives/>
+                    </div>
+                    <div className={fr.cx("fr-col-5")}>
+                    </div>
                 
-                <SearchBarCollectives/>
                 </div>
             </div>
 
@@ -86,8 +97,6 @@ export default function Page() {
                 className={fr.cx("fr-container")}
                 style = {{
                     paddingBottom: fr.spacing("30v"),
-                    paddingLeft: fr.spacing('18v'),
-                    paddingRight: fr.spacing('18v'),
                     paddingTop: fr.spacing("30v")
                 }}
             >
@@ -117,8 +126,6 @@ export default function Page() {
                     className={fr.cx("fr-container")}
                     style = {{
                         paddingBottom: fr.spacing("30v"),
-                        paddingLeft: fr.spacing('18v'),
-                        paddingRight: fr.spacing('18v'),
                         paddingTop: fr.spacing("30v")
                     }}
                 >
@@ -137,8 +144,6 @@ export default function Page() {
                     className={fr.cx("fr-container")} 
                     style = {{
                         paddingBottom: fr.spacing("30v"),
-                        paddingLeft: fr.spacing('18v'),
-                        paddingRight: fr.spacing('18v'),
                         paddingTop: fr.spacing("30v")
                     }}
                     >
@@ -160,8 +165,6 @@ export default function Page() {
                     className={fr.cx("fr-container")}
                     style = {{
                         paddingBottom: fr.spacing("30v"),
-                        paddingLeft: fr.spacing('18v'),
-                        paddingRight: fr.spacing('18v'),
                         paddingTop: fr.spacing("30v")
                     }} 
                 >
