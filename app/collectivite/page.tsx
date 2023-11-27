@@ -10,7 +10,7 @@ import { useSearchParams } from 'next/navigation';
 import { KPICard } from '../components/KPICard';
 import { Breadcrumb } from "@codegouvfr/react-dsfr/Breadcrumb";
 import { NumericFormat } from 'react-number-format';
-
+import "./page.css"
 
 export default function Collectivite() {
     const searchParams = useSearchParams()
@@ -28,51 +28,48 @@ export default function Collectivite() {
                         <div 
                             className={fr.cx("fr-container")}
                             style = {{
-                                paddingBottom: fr.spacing("2v"),
-                                paddingTop: fr.spacing("10v")
+                                paddingBottom: fr.spacing("5w"),
+                                paddingTop: fr.spacing("5w")
                             }}
                         >
-                                <div className={fr.cx("fr-grid-row")}>
-                                    <div className={fr.cx("fr-col-3")}>
-                                        <Breadcrumb  
-                                            currentPageLabel={searchParams.get('nom')}
-                                            homeLinkProps={{
-                                                href: '.'
-                                            }}
-                                            segments={[
-                                            ]}
-                                        />
-                                    </div>
-                                    <div className={fr.cx("fr-col-9")}>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                        <div 
-                            className={fr.cx("fr-container")}
-                            style = {{
-                            }}
-                        >
-                            <div className={fr.cx("fr-grid-row")}>
-                                <div className={fr.cx("fr-col-12")}>
-                                    <h1>{searchParams.get('nom')}</h1>
+                            <div 
+                                className={fr.cx("fr-grid-row")}
+                                style={{
+                                    padding: fr.spacing('1v')
+                                    }}>
+                                <div className={fr.cx("fr-col-3")}>
+                                    <Breadcrumb  
+                                        currentPageLabel={searchParams.get('nom')}
+                                        homeLinkProps={{
+                                            href: '.'
+                                        }}
+                                        segments={[
+                                        ]}
+                                    />
+                                </div>
+                                <div className={fr.cx("fr-col-9")}>
                                 </div>
                             </div>
-                        </div>
-                        <div 
-                            className={fr.cx("fr-container")}
-                            style = {{
-                                paddingBottom: fr.spacing("10v")
-                            }}
-                        >
+                        
+                    
                             <div className={fr.cx("fr-grid-row")}>
                                 <div className={fr.cx("fr-col-12")}>
+                                    <div className='h1-collectivite'>{searchParams.get('nom')}</div>
+                                </div>
+                            </div>
+                        
+                        
+                            <div className={fr.cx("fr-grid-row")}>
+                                <div className={fr.cx("fr-col-12")}>
+                                    <div className='h1-collectivite-population'>
                                     <NumericFormat 
                                         className="result-collectivite-info" 
                                         value={searchParams.get('population')} 
                                         displayType='text'
                                         thousandSeparator=' ' 
-                                        suffix=' habitants'/>                                
+                                        suffix=' habitants'/>  
+                                    </div>
+                                                                  
                                 </div>
                             </div>
                         </div>
@@ -82,13 +79,49 @@ export default function Collectivite() {
                         <div 
                             className={fr.cx("fr-container")}
                             style = {{
-                                paddingBottom: fr.spacing("6v"),
                                 paddingTop: fr.spacing("10v")
                             }}
                         >
                             <div className={fr.cx("fr-grid-row")}>
                                 <div className={fr.cx("fr-col-12")}>
                                     <h2>Population exposée aux nuisances</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div 
+                            className={fr.cx("fr-container")}
+                            style = {{
+                                paddingBottom: fr.spacing("6v"),
+                            }}
+                        >
+                            <div className={fr.cx("fr-grid-row")}>
+                                <div className={fr.cx("fr-col-4")}
+                                style={{
+                                    paddingRight:fr.spacing('6v'),
+                                    paddingBottom:fr.spacing('6v')
+                                }}>
+                                    <KPICard/>
+                                </div>
+                                <div className={fr.cx("fr-col-4")}
+                                style={{
+                                    paddingRight:fr.spacing('6v'),
+                                    paddingBottom:fr.spacing('6v')
+                                }}>
+                                    <KPICard/>
+                                </div>
+                                <div className={fr.cx("fr-col-4")}
+                                    style={{
+                                        paddingBottom:fr.spacing('6v')
+                                    }}>
+                                    <KPICard/>
+                                </div>
+                                <div className={fr.cx("fr-col-4")} 
+                                    style={{
+                                    paddingRight:fr.spacing('6v'),
+                                    paddingBottom:fr.spacing('6v')
+                                }}>
+                                    <KPICard/>
                                 </div>
                             </div>
                         </div>
