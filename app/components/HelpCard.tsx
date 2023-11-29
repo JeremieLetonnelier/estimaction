@@ -9,7 +9,7 @@ import { fr } from "@codegouvfr/react-dsfr";
 import "./Cards.css";
 import { Tag } from "@codegouvfr/react-dsfr/Tag";
 import { Button } from "@codegouvfr/react-dsfr/Button";
-import { cx } from "@codegouvfr/react-dsfr/fr/cx";
+import { cx } from "@codegouvfr/react-dsfr/tools/cx";
 
 
 export const HelpCard = () => { 
@@ -21,7 +21,7 @@ export const HelpCard = () => {
                     <Tag iconId="fr-icon-user-line" linkProps={{href: '#'}}>
                         Appel à contribution
                     </Tag>
-                    <p className={cx(fr.cx('fr-text-md'),fr.cx('fr-text--bold'),fr.cx('fr-mb-0'),fr.cx('fr-pt-4v'),fr.cx('fr-pb-2v'))}>
+                    <p className={cx(fr.cx("fr-text-md"),fr.cx('fr-text--bold'),fr.cx('fr-mb-0'),fr.cx('fr-pt-4v'),fr.cx('fr-pb-2v'))}>
                         Une idée d&apos;indicateur à ajouter ?
                     </p>
                     <p className={cx(fr.cx('fr-mb-0'),fr.cx('fr-pb-2v'))} style={{fontSize:'14px'}}> 

@@ -12,7 +12,7 @@ import { HelpCard } from '../components/HelpCard';
 import { Breadcrumb } from "@codegouvfr/react-dsfr/Breadcrumb";
 import { NumericFormat } from 'react-number-format';
 import "./page.css"
-import { cx } from "@codegouvfr/react-dsfr/fr/cx";
+import { cx } from "@codegouvfr/react-dsfr/tools/cx";
 
 
 export default function Collectivite() {
@@ -28,6 +28,7 @@ export default function Collectivite() {
                             backgroundColor : fr.colors.decisions.background.alt.blueFrance.default,
                         }}
                     >
+                        <div className={cx(fr.cx("fr-container"), fr.cx("fr-pt-32v"))}></div>
                         <div className={cx(fr.cx('fr-container'),fr.cx('fr-pt-10v'),fr.cx('fr-pb-10v'))}>
                             <div className={fr.cx("fr-grid-row")}>
                                 <div className={fr.cx("fr-col-3")}>
