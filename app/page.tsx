@@ -10,7 +10,7 @@ import { SearchBar } from "@codegouvfr/react-dsfr/SearchBar";
 import { SearchBarCollectives } from "./components/SearchBarCollectivites";
 import { useState } from "react";
 import carte from "./assets/img/carte_nuisances.png";
-
+import { cx } from "@codegouvfr/react-dsfr/tools/cx";
 
 export default function Page() {
 
@@ -40,35 +40,23 @@ export default function Page() {
             
 
             <div
-            
                 style={{
                     backgroundColor : fr.colors.decisions.background.alt.blueFrance.default,
                     
                 }}
             >
+                <div className={cx(fr.cx("fr-container"), fr.cx("fr-pt-32v"))}>
+                    <div className={cx(fr.cx("fr-grid-row"),fr.cx('fr-grid-row--gutters'))}>
 
-                <div
-                    className={fr.cx("fr-container")}
-                    style={{
-                        paddingTop: fr.spacing("32v"),
-                        paddingBottom: fr.spacing("6v"),
-                    }}
-                >
-                    <div className={fr.cx("fr-col-7")}>
-                        <h1>Accédez au diagostic santé evironnement de votre collectivité</h1>
-                    </div>
-                    <div className={fr.cx("fr-col-5")}>
+                        <div className={fr.cx("fr-col-7")}>
+                            <h1>Accédez au diagostic santé environnement de votre collectivité</h1>
+                        </div>
                     </div>
                 </div>
                 
-                <div
-                    className={fr.cx("fr-container")}
-                    style={{
-                        paddingBottom: fr.spacing("4v"),
-                    }}
-                >   
+                <div className={cx(fr.cx("fr-container"),fr.cx('fr-pb-4v'))}>   
                     <div className={fr.cx("fr-col-7")}>
-                        <p>
+                        <p className={cx(fr.cx('fr-mb-0'),'fr-text--lead')}>
                         Sélectionnez une commune ou une intercommunalité et visualisez la population
                         exposée aux différentes nuisances présentes sur son territoire.
                         </p>
@@ -78,33 +66,22 @@ export default function Page() {
 
                 </div>
             
-                <div
-                    className={fr.cx("fr-container")}
-                    style={{
-                        paddingBottom: fr.spacing("4v"),
-                    }}
-                >
+                <div className={cx(fr.cx("fr-container"),fr.cx("fr-pb-4v"))}>
                     <div className={fr.cx("fr-col-7")}>
                         <SearchBarCollectives/>
                     </div>
                     <div className={fr.cx("fr-col-5")}>
                     </div>
-                
                 </div>
             </div>
 
-            <div 
-                className={fr.cx("fr-container")}
-                style = {{
-                    paddingBottom: fr.spacing("30v"),
-                    paddingTop: fr.spacing("30v")
-                }}
-            >
+            <div className={cx(fr.cx("fr-container"),fr.cx("fr-pb-30v"),fr.cx("fr-pt-30v"))}>
                 <div className={fr.cx("fr-grid-row")}>
                     <div className={fr.cx("fr-col-5")}>
                     <Image 
                         src={carte}
                         alt="Illustration"	
+                        className={fr.cx('fr-responsive-img')}
                     />
     
                     </div>
@@ -122,13 +99,7 @@ export default function Page() {
                     backgroundColor : fr.colors.decisions.background.alt.blueFrance.default,
                 }}
             >
-                <div 
-                    className={fr.cx("fr-container")}
-                    style = {{
-                        paddingBottom: fr.spacing("30v"),
-                        paddingTop: fr.spacing("30v")
-                    }}
-                >
+                <div className={cx(fr.cx("fr-container"),fr.cx('fr-pb-30v'),fr.cx('fr-pt-30v'))}>
                     <div className={fr.cx("fr-grid-row")}>
                     <div className={fr.cx("fr-col-5")}>
                             <h1 className={fr.cx("fr-h1")}>Estim&apos;action est actuellement en version Bêta.</h1>

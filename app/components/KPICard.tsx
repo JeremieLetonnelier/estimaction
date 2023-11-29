@@ -6,7 +6,7 @@ import { NumericFormat } from 'react-number-format';
 import Link from "next/link";
 import { is } from "tsafe";
 import { fr } from "@codegouvfr/react-dsfr";
-import "./KPICard.css"
+import "./Cards.css"
 import { Tag } from "@codegouvfr/react-dsfr/Tag";
 import { Button } from "@codegouvfr/react-dsfr/Button";
 
@@ -75,7 +75,7 @@ export const KPICard = (codeCommune:any) => {
                         <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
                             <circle cx="4" cy="4" r="4" fill="#6A6AF4"/>
                         </svg>
-                        Mise à jour
+                        Mise à jour : 01/06/2022
                         </div>
                         <div className='flex-container'>
                             <Button iconId="fr-icon-arrow-right-line" priority="tertiary no outline">

@@ -8,9 +8,12 @@ import { fr } from "@codegouvfr/react-dsfr";
 import { useRouter } from 'next/navigation' ;
 import { useSearchParams } from 'next/navigation';
 import { KPICard } from '../components/KPICard';
+import { HelpCard } from '../components/HelpCard';
 import { Breadcrumb } from "@codegouvfr/react-dsfr/Breadcrumb";
 import { NumericFormat } from 'react-number-format';
 import "./page.css"
+import { cx } from "@codegouvfr/react-dsfr/fr/cx";
+
 
 export default function Collectivite() {
     const searchParams = useSearchParams()
@@ -25,18 +28,8 @@ export default function Collectivite() {
                             backgroundColor : fr.colors.decisions.background.alt.blueFrance.default,
                         }}
                     >
-                        <div 
-                            className={fr.cx("fr-container")}
-                            style = {{
-                                paddingBottom: fr.spacing("5w"),
-                                paddingTop: fr.spacing("5w")
-                            }}
-                        >
-                            <div 
-                                className={fr.cx("fr-grid-row")}
-                                style={{
-                                    padding: fr.spacing('1v')
-                                    }}>
+                        <div className={cx(fr.cx('fr-container'),fr.cx('fr-pt-10v'),fr.cx('fr-pb-10v'))}>
+                            <div className={fr.cx("fr-grid-row")}>
                                 <div className={fr.cx("fr-col-3")}>
                                     <Breadcrumb  
                                         currentPageLabel={searchParams.get('nom')}
@@ -45,31 +38,32 @@ export default function Collectivite() {
                                         }}
                                         segments={[
                                         ]}
+                                        classes={{
+                                            root: cx(fr.cx('fr-mb-0'),fr.cx('fr-mt-0')), 
+                                            button: fr.cx('fr-mb-2v'), 
+                                        }}
                                     />
-                                </div>
-                                <div className={fr.cx("fr-col-9")}>
                                 </div>
                             </div>
                         
                     
                             <div className={fr.cx("fr-grid-row")}>
                                 <div className={fr.cx("fr-col-12")}>
-                                    <div className='h1-collectivite'>{searchParams.get('nom')}</div>
+                                    <h1 className={fr.cx('fr-mb-0')}>{searchParams.get('nom')}</h1>
                                 </div>
                             </div>
                         
                         
                             <div className={fr.cx("fr-grid-row")}>
                                 <div className={fr.cx("fr-col-12")}>
-                                    <div className='h1-collectivite-population'>
+                                    <div className={fr.cx("fr-col-12")}>
                                     <NumericFormat 
                                         className="result-collectivite-info" 
                                         value={searchParams.get('population')} 
                                         displayType='text'
                                         thousandSeparator=' ' 
                                         suffix=' habitants'/>  
-                                    </div>
-                                                                  
+                                    </div>                        
                                 </div>
                             </div>
                         </div>
@@ -95,33 +89,22 @@ export default function Collectivite() {
                                 paddingBottom: fr.spacing("6v"),
                             }}
                         >
-                            <div className={fr.cx("fr-grid-row")}>
-                                <div className={fr.cx("fr-col-4")}
-                                style={{
-                                    paddingRight:fr.spacing('6v'),
-                                    paddingBottom:fr.spacing('6v')
-                                }}>
+                            <div className={cx(fr.cx("fr-grid-row"),fr.cx('fr-grid-row--gutters'))}>
+                                <div className={fr.cx("fr-col-4")}>
                                     <KPICard/>
                                 </div>
-                                <div className={fr.cx("fr-col-4")}
-                                style={{
-                                    paddingRight:fr.spacing('6v'),
-                                    paddingBottom:fr.spacing('6v')
-                                }}>
+                                <div className={fr.cx("fr-col-4")}>
                                     <KPICard/>
                                 </div>
-                                <div className={fr.cx("fr-col-4")}
-                                    style={{
-                                        paddingBottom:fr.spacing('6v')
-                                    }}>
+                                <div className={fr.cx("fr-col-4")}>
                                     <KPICard/>
                                 </div>
-                                <div className={fr.cx("fr-col-4")} 
-                                    style={{
-                                    paddingRight:fr.spacing('6v'),
-                                    paddingBottom:fr.spacing('6v')
-                                }}>
+                                <div className={fr.cx("fr-col-4")}>
                                     <KPICard/>
+                                </div>
+
+                                <div className={fr.cx("fr-col-4")}>
+                                    <HelpCard/>
                                 </div>
                             </div>
                         </div>

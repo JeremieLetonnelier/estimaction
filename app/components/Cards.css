@@ -1,5 +1,6 @@
 .kpi-card{
     display: flex;
+    height:100%;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
@@ -46,4 +47,21 @@
     display: flex;
     align-items: center;
     gap:4px;
+}
+
+.flex-container-contribution{
+    display: flex;
+    align-items: center;
+    gap:4px;
+    margin-left: auto;
+}
+
+.help-card{
+    display: flex;
+    height:100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px solid var(--light-border-default-grey, #DDD);
+    background-color: var(--background-alt-blue-france)
 }
