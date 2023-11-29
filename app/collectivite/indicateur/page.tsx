@@ -36,6 +36,7 @@ export default function Collectivite() {
                                     />
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </>
     )

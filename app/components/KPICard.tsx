@@ -60,6 +60,7 @@ export const KPICard = (codeCommune:any) => {
                         paddingBottom: fr.spacing('3w'),
                         paddingLeft: fr.spacing('3w'),
                         paddingRight: fr.spacing('3w'),
+                        height: '100%'
                     }}>
                     <Tag>
                         Air extérieur

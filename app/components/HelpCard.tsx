@@ -17,11 +17,11 @@ export const HelpCard = () => {
     return (
         <>
             <div className='help-card'>
-                <div className={cx(fr.cx('fr-pt-6v'),fr.cx('fr-pb-6v'),fr.cx('fr-pl-6v'),fr.cx('fr-pr-6v'))}>
+                <div className={cx(fr.cx('fr-pt-6v'),fr.cx('fr-pb-6v'),fr.cx('fr-pl-6v'),fr.cx('fr-pr-6v'))} style={{height:'100%'}}>
                     <Tag iconId="fr-icon-user-line" linkProps={{href: '#'}}>
                         Appel à contribution
                     </Tag>
-                    <p className={cx(fr.cx("fr-text-md"),fr.cx('fr-text--bold'),fr.cx('fr-mb-0'),fr.cx('fr-pt-4v'),fr.cx('fr-pb-2v'))}>
+                    <p className={cx('fr-text-md','fr-text--bold',fr.cx('fr-mb-0'),'fr-pt-4v',fr.cx('fr-pb-2v'))}>
                         Une idée d&apos;indicateur à ajouter ?
                     </p>
                     <p className={cx(fr.cx('fr-mb-0'),fr.cx('fr-pb-2v'))} style={{fontSize:'14px'}}> 
