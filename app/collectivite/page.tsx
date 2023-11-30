@@ -28,7 +28,6 @@ export default function Collectivite() {
                             backgroundColor : fr.colors.decisions.background.alt.blueFrance.default,
                         }}
                     >
-                        <div className={cx(fr.cx("fr-container"), fr.cx("fr-pt-32v"))}></div>
                         <div className={cx(fr.cx('fr-container'),fr.cx('fr-pt-10v'),fr.cx('fr-pb-10v'))}>
                             <div className={fr.cx("fr-grid-row")}>
                                 <div className={fr.cx("fr-col-3")}>

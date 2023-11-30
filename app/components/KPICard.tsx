@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react"; // for the search bar we use it to know what the user has entered 
+import { useEffect, useState, useCallback } from "react"; // for the search bar we use it to know what the user has entered 
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+
 import "./SearchBarCollectivites.css"
 import { NumericFormat } from 'react-number-format';
-import Link from "next/link";
-import { is } from "tsafe";
 import { fr } from "@codegouvfr/react-dsfr";
 import "./Cards.css"
 import { Tag } from "@codegouvfr/react-dsfr/Tag";
@@ -14,6 +14,11 @@ export const KPICard = (codeCommune:any) => {
     
     const [kpi, setKPI] = useState(null)
     const [isLoading, setLoading] = useState(true)
+    const router = useRouter()
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+
+    // const handleClick = useCallback(() => router.push('/about')(false), []);
 
     useEffect(() => {
         // fetch(`https://api-estimaction-2-tja3bmgvva-od.a.run.app/communes_qualite_air/?admin_express_code_commune_insee=${codeCommune.codeCommune}`)
@@ -79,7 +84,10 @@ export const KPICard = (codeCommune:any) => {
                         Mise à jour : 01/06/2022
                         </div>
                         <div className='flex-container'>
-                            <Button iconId="fr-icon-arrow-right-line" priority="tertiary no outline">
+                            <Button 
+                                iconId="fr-icon-arrow-right-line" 
+                                priority="tertiary no outline" 
+                                onClick={() => router.push(`/collectivite/indicateur?${searchParams}&type=qa`)}>
                             </Button>
                         </div>
                         
