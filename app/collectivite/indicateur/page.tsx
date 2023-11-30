@@ -11,7 +11,7 @@ import { ToggleButton } from "../../components/ToggleButton";
 import { flexbox } from "@mui/system";
 import "./page.css"
 
-export function findArrayElementByType(array:any, type:any) {
+function findArrayElementByType(array:any, type:any) {
     return array.find((element:any) => {
       return element.type === type;
     })
