@@ -9,7 +9,6 @@ import { cx } from "@codegouvfr/react-dsfr/fr/cx";
 type Props = {
     checkedLabel:string;
     uncheckedLabel:string;
-
   };
   
 export const ToggleButton = ({ checkedLabel, uncheckedLabel}: Props) => {
